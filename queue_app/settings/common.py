@@ -60,7 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'friendlyqueue.urls'
+ROOT_URLCONF = 'queue_app.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'friendlyqueue.wsgi.application'
+WSGI_APPLICATION = 'queue_app.wsgi.application'
 
 
 # Database
