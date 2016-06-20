@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %}
+
+{% block title %}Guest{% endblock title %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="page-header">
+        <h1>Guest</h1>
+      </div>
+
+      <dl class="dl-horizontal">
+        <dt><strong>Name:</strong></dt>
+        <dd>{{ guest.name }}</dd>
+        <dt><strong>Phone number:</strong></dt>
+        <dd>{{ guest.phone_number }}</dd>
+        <dt><strong>Number of guests:</strong></dt>
+        <dd>{{ guest.number_of_guests }}</dd>
+      </dl>
+
+      <a class="btn btn-default" href="{% url 'list_guests' %}">Back to list</a>
+      <a class="btn btn-default" href="{% url 'edit_guest' guest.code %}">Edit</a>
+      <a class="btn btn-danger" data-method="delete" href="{% url 'delete_guest' guest.code %}">Delete</a>
+    </div>
+  </div>
+{% endblock %}

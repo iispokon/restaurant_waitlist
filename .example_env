@@ -1,0 +1,5 @@
+# Twilio API credentials
+export TWILIO_NUMBER=+###########
+export TWILIO_ACCOUNT_SID=ACXXXXXXXXXXXXXXXXX
+export TWILIO_AUTH_TOKEN=YYYYYYYYYYYYYYYYYY
+export APP_DOMAIN=xxxxxx.ngrok.io

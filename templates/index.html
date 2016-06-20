@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-9">
+
+      <h1>Restaurant Waitlist App</h1>
+
+      <p>A demo application that leverages the power of <a href="http://twilio.com">Twilio</a> to
+        provide fanatical customer service to restaurant diners
+      <p>
+        <td>
+          <a class="btn btn-primary btn-cs" href="{% url 'list_guests' %}">Let's get started with the demo</a>
+        </td>
+      </p>
+    </div>
+
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ guest }}{% endblock title %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="page-header">
+        <h1>Tell {{ object.name }} that their table is ready</h1>
+      </div>
+
+      <form action="" method="post">
+          {% csrf_token %}
+          <p>Page guest: <strong>{{ object.name }} (Party of  {{ object.number_of_guests }})</strong>?</p>
+          <p>Phone: <strong>{{ object.phone_number }}</strong></p>
+          <a class="btn btn-default" href="{% url 'list_guests' %}">Back</a>
+          <button type="submit" class="btn btn-success">
+            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Page
+          </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
