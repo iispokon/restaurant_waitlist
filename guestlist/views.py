@@ -9,6 +9,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django_twilio.decorators import twilio_view
 from twilio import twiml
+from twilio.rest import TwilioRestClient
 
 from .models import Guest
 
@@ -57,7 +58,22 @@ class GuestPageView(GuestDetailView):
     template_name = 'guestlist/page_guest.html'
 
     def post(self, request, code):
-        print("success")
+        guest = Guest.objects.get(code=code)
+        if settings.TWILIO_NUMBER and guest.phone_number:
+            body = 'Hi {0} (party of {1}). Your table is ready. '.format(
+                guest.name,
+                guest.number_of_guests)
+            try:
+                client = TwilioRestClient()
+                message = client.messages.create(
+                    body=body,
+                    to=guest.phone_number,
+                    from_=settings.TWILIO_NUMBER
+                )
+            except Exception as e:
+                # TODO handle twilio exceptions
+                return
+
         return HttpResponseRedirect(reverse_lazy('list_guests'))
 
 

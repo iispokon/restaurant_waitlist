@@ -10,6 +10,7 @@ from twilio.rest import TwilioRestClient
 
 CODE_LENGTH = 16
 
+
 @python_2_unicode_compatible
 class Guest(models.Model):
     name = models.CharField(max_length=150)
@@ -29,13 +30,14 @@ class Guest(models.Model):
         """Custom save method"""
 
         # generate a unique alphanumeric unique secondary key
-        random = str(uuid.uuid4())  # Convert UUID format to a Python string.
-        random = random.upper()
-        random = random.replace("-", "")
-        random = random[0:CODE_LENGTH]
+        if not self.code:
+            random = str(uuid.uuid4())  # Convert UUID format to a Python string.
+            random = random.upper()
+            random = random.replace("-", "")
+            random = random[0:CODE_LENGTH]
+            self.code = random
 
-        # save
-        self.code = random
+        # Save
         super(Guest, self).save(*args, **kwargs)
 
         if settings.TWILIO_NUMBER:
@@ -54,6 +56,6 @@ class Guest(models.Model):
                     to=self.phone_number,
                     from_=settings.TWILIO_NUMBER
                 )
-            except Exception:
+            except Exception as e:
                 # TODO handle twilio exceptions
                 return

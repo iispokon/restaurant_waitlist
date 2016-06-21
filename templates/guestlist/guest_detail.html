@@ -6,7 +6,7 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-7">
       <div class="page-header">
         <h1>Guest</h1>
       </div>
@@ -20,7 +20,9 @@
         <dd>{{ guest.number_of_guests }}</dd>
       </dl>
 
-      <a class="btn btn-default" href="{% url 'list_guests' %}">Back to list</a>
+      {% if not user.is_anonymous %}
+        <a class="btn btn-default" href="{% url 'list_guests' %}">Back to list</a>
+      {% endif %}
       <a class="btn btn-default" href="{% url 'edit_guest' guest.code %}">Edit</a>
       <a class="btn btn-danger" data-method="delete" href="{% url 'delete_guest' guest.code %}">Delete</a>
     </div>

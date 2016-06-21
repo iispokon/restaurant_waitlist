@@ -20,7 +20,7 @@ from guestlist import views
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
-    url(r'^guestlist', include('guestlist.urls')),
+    url(r'^guestlist/', include('guestlist.urls')),
 
     url(r'^admin/', admin.site.urls),
 ]

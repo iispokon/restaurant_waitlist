@@ -4,7 +4,7 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-5">
 
       <h1>Restaurant Waitlist App</h1>
 
@@ -12,7 +12,16 @@
         provide fanatical customer service to restaurant diners
       <p>
         <td>
-          <a class="btn btn-primary btn-cs" href="{% url 'list_guests' %}">Let's get started with the demo</a>
+          {% if not user.is_anonymous %}
+          <h3>User "{{ user.username }}" is logged in. </h3>
+          {% endif %}
+          <a class="btn btn-primary btn-cs" href="{% url 'list_guests' %}">
+            {% if user.is_anonymous %}
+              Let's get started with the demo
+            {% else %}
+              Click to View list
+            {% endif %}
+          </a>
         </td>
       </p>
     </div>

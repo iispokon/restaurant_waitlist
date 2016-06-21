@@ -26,7 +26,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
-
 # Twilio API
 TWILIO_NUMBER = os.environ.get('TWILIO_NUMBER')
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
