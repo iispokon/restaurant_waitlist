@@ -5,29 +5,29 @@ _Repository of a simple Twilio demo app. Idea borrowed from [appointment-reminde
 ## Setup
 To view this demo. Run the app locally:
 
-You should already have a Twilio account. You will set environment variables to your TWILIO_NUMBER and Twilio app credentials (steps below). 
-This demo will work with a Twilio free trial account. Just be sure to use "Verified Caller Id" numbers, so that Twilio can message those numbers when you try this demo.
+You should already have a Twilio account. You will also need to set environment variables to your TWILIO_NUMBER and Twilio app credentials (steps below). 
+Note: This demo will work with a Twilio free trial account, but just be sure to use "Verified Caller Id" numbers, so that Twilio can message those numbers when you try this demo.
     
-This app allows anonymous users to access a "guestlist" webpage. In order to access the webpage over the internet, we will need to use [ngrok](https://ngrok.com/) to expose your local machine to the internet.
+This app allows anonymous users to access a "guestlist" webpage -- In order to access the webpage over the internet, we will need to use [ngrok](https://ngrok.com/) to expose your local machine to the internet.
 
 ### Local setup
 
-1. Clone this repository. Then 'cd' into its directory
-1. Create a virtualenv environment
+1. Clone this repository. Then 'cd' into its directory.
+1. Create a virtualenv environment.
     ```bash
     virtualenv venv
     source venv/bin/activate
     ```
-1. Install requirements
+1. Install requirements.
     ```bash
     pip install -r requirements.txt
     ```
-1. Run migrations
+1. Run migrations.
     ```bash
     python manage.py makemigrations guestlist
     python manage.py migrate
     ```
-1. Create a superuser
+1. Create a superuser.
     ```bash
     python manage.py createsuperuser
     ```
@@ -38,14 +38,14 @@ This app allows anonymous users to access a "guestlist" webpage. In order to acc
     ```bash
     ngrok http 8000 -host-header="localhost:8000"
     ```
-1. Rename ".example_env" to ".env"
-1. Edit .env and provide your TWILIO_NUMBER, TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN. Set APP_DOMAIN to ```<your-ngrok-subdomain>.ngrok.io```, obtained from the previous step
-1. Source env
+1. Rename ".example_env" to ".env".
+1. Edit .env and provide your TWILIO_NUMBER, TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN. Set APP_DOMAIN to ```<your-ngrok-subdomain>.ngrok.io```, obtained from the previous step.
+1. Source env.
     ```bash
     source .env
     ```
-1. Set your Twilio phone number's message webhook URL to POST  ```http://<your-ngrok-subdomain>.ngrok.io/guestlist/action/```
-1. Start the server
+1. Set your Twilio phone number's message webhook URL to POST  ```http://<your-ngrok-subdomain>.ngrok.io/guestlist/action/```.
+1. Start the server.
     ```bash
     python manage.py runserver
     ```
