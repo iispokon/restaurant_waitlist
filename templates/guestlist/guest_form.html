@@ -31,12 +31,9 @@
             {{ form|as_bootstrap_horizontal }}
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <a href="{% url 'list_guests' %}" class="btn btn-default">
-                  {% if user.is_anonymous %}
-                    Cancel
-                  {% else %}
-                    Back to list
-                  {% endif %}
+                <a href="{%if object %} {{ object.get_absolute_url }} {% else %} {% url 'list_guests' %} {% endif %}"
+                   class="btn btn-default">
+                  Cancel
                 </a>
                 <button type="submit" class="btn btn-primary">
                   {% if object %}

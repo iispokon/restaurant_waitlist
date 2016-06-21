@@ -1,5 +1,5 @@
 """
-WSGI config for restaurant_friendlyqueue_django project.
+WSGI config for restaurant_waitlist project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

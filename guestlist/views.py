@@ -8,6 +8,7 @@ from django.views.generic import DetailView, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django_twilio.decorators import twilio_view
+from django.contrib import messages
 from twilio import twiml
 from twilio.rest import TwilioRestClient
 
@@ -51,11 +52,17 @@ class GuestDeleteView(SecondaryKeyMixinView, DeleteView):
     """Prompts users to confirm deletion"""
 
     success_url = reverse_lazy('list_guests')
+    success_message = "Successfully removed from list."
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(GuestDeleteView, self).delete(request, *args, **kwargs)
 
 
 class GuestPageView(GuestDetailView):
 
     template_name = 'guestlist/page_guest.html'
+    success_message = "Successfully paged guest."
 
     def post(self, request, code):
         guest = Guest.objects.get(code=code)
@@ -70,6 +77,7 @@ class GuestPageView(GuestDetailView):
                     to=guest.phone_number,
                     from_=settings.TWILIO_NUMBER
                 )
+                messages.success(self.request, self.success_message)
             except Exception as e:
                 # TODO handle twilio exceptions
                 return

@@ -23,8 +23,12 @@
       {% if not user.is_anonymous %}
         <a class="btn btn-default" href="{% url 'list_guests' %}">Back to list</a>
       {% endif %}
-      <a class="btn btn-default" href="{% url 'edit_guest' guest.code %}">Edit</a>
-      <a class="btn btn-danger" data-method="delete" href="{% url 'delete_guest' guest.code %}">Delete</a>
+      <a class="btn btn-default" href="{% url 'edit_guest' guest.code %}">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Edit
+      </a>
+      <a class="btn btn-danger" data-method="delete" href="{% url 'delete_guest' guest.code %}">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete
+      </a>
     </div>
   </div>
 {% endblock %}

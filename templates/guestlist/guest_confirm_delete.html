@@ -12,8 +12,8 @@
       <form action="" method="post">
           {% csrf_token %}
           <p>Are you sure you want to delete guest <strong>{{ object }}</strong>?</p>
-          <a class="btn btn-default" href="{% url 'list_guests' %}">Back</a>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <a class="btn btn-default" href="{{ object.get_absolute_url }}">Cancel</a>
+          <button type="submit" class="btn btn-danger">Confirm</button>
       </form>
     </div>
   </div>
