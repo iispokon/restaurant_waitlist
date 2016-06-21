@@ -14,40 +14,40 @@ This app allows anonymous users to access a "guestlist" webpage. In order to acc
 
 1. Clone this repository. Then 'cd' into its directory
 1. Create a virtualenv environment
-    ```
-    $ virtualenv venv
-    $ source venv/bin/activate
+    ```bash
+    virtualenv venv
+    source venv/bin/activate
     ```
 1. Install requirements
-    ```
-    $ pip install -r requirements.txt
+    ```bash
+    pip install -r requirements.txt
     ```
 1. Run migrations
-    ```
-    $ python manage.py makemigrations guestlist
-    $ python manage.py migrate
+    ```bash
+    python manage.py makemigrations guestlist
+    python manage.py migrate
     ```
 1. Create a superuser
-    ```
-    # python manage.py createsuperuser
+    ```bash
+    python manage.py createsuperuser
     ```
 1. Install [ngrok](https://ngrok.com/)
     Note:
     - Ngrok allows you to expose a web server running on your local machine to the internet. Just tell ngrok what port your web server is listening on.
     - Expose your local web server to the internet:
-    ```
-    $ ngrok http 8000 -host-header="localhost:8000"
+    ```bash
+    ngrok http 8000 -host-header="localhost:8000"
     ```
 1. Rename ".example_env" to ".env"
 1. Edit .env and provide your TWILIO_NUMBER, TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN. Set APP_DOMAIN to ```<your-ngrok-subdomain>.ngrok.io```, obtained from the previous step
 1. Source env
-    ```
-    $ source .env
+    ```bash
+    source .env
     ```
 1. Set your Twilio phone number's message webhook URL to POST  ```http://<your-ngrok-subdomain>.ngrok.io/guestlist/action/```
 1. Start the server
-    ```
-    $ python manage.py runserver
+    ```bash
+    python manage.py runserver
     ```
 
 ## Demo app
