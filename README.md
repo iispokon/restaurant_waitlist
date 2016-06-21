@@ -1,6 +1,19 @@
 # Restaurant Waitlist App
-_Repository of a simple Twilio demo app. Idea borrowed from [appointment-reminders-django](https://github.com/TwilioDevEd/appointment-reminders-django)_
+_Repository of a simple Twilio demo app. The idea for this app is borrowed from [appointment-reminders-django](https://github.com/TwilioDevEd/appointment-reminders-django)_
 
+
+## Demo app
+Here's a familiar scenario: You and your friends arrive at a busy restaurant. You don't have a reservation. The host informs you that there is a long wait and you'd have to place your name on a list. 
+Once there is a table available, the host will call out your name. Hopefully, you haven't wandered off and lost your place in line.
+There are plenty of shops and bars around that you can patronize while you wait. However, for fear that you might miss your name called, you suffer waiting in the crowded waiting area.
+
+This demo app is a modern take on the good old pen, paper and clipboard approach used by many restaurants. A simple interface makes it easy for a customer to put their name on a wait list, keep track of their position anywhere using their cellphone, and also make changes (like update the number of guests to be seated). 
+With a button click, the restaurant/host informs the customer that their table is ready. The customer is notified via SMS.
+
+## Usage
+- Anonymous users of this app are basically restaurant customers. As a customer, you can add your name to the list by providing a name, number of guests, and your phone number.
+
+- Restaurant staff are users who have logins to the app. (Use the django superuser created in the previous steps). Once logged in, you can edit names on the list. You can use the "page" functionality to let customers know that their table is ready. 
 
 ## Setup
 To view this demo. Run the app locally:
@@ -71,13 +84,3 @@ This app allows anonymous users to access a "guestlist" webpage -- In order to a
     ```
     python manage.py runserver
     ```
-
-## Demo app
-Here's a familiar scenario: You and your friends arrive at a busy restaurant. You don't have a reservation. The host informs you that there is a long wait and you put your name on a list.
-There are plenty of shops and bars around that you can patronize while you wait. However, you instead hover near the door for fear that you might miss your name being called when your table is ready. 
-This demo app is a modern take on the good old pen, paper and clipboard approach used by many small restaurants. It makes it easy to put your name on the list, keep track of your position, and make changes. The host can inform you that your table is ready with a click of a button.
-
-## Usage
-- Anonymous users are basically restaurant customers. As a customer, you can add your name to the list by providing a name, number of guests, and your phone number.
-
-- Restaurant staff logs-in to the app. (Use the django superuser created in the previous steps). Once logged in, you can edit things on the list, and page customers to let them know their table is ready. 
