@@ -13,15 +13,16 @@ With a button click, the restaurant/host informs the customer that their table i
 ## Usage
 - Anonymous users of this app are basically restaurant customers. As a customer, you can add your name to the list by providing a name, number of guests, and your phone number.
 
-- Restaurant staff are users who have logins to the app. (Use the django superuser created in the previous steps). Once logged in, you can edit names on the list. You can use the "page" functionality to let customers know that their table is ready. 
+- Restaurant staff are users who have logins to the app. (Use the django superuser created in the steps below). Once logged in, you can edit names on the list. You can use the "page" functionality to let customers know that their table is ready. 
 
 ## Setup
 To view this demo. Run the app locally:
 
-You should already have a Twilio account. You will also need to set environment variables to your TWILIO_NUMBER and Twilio app credentials (steps below). 
-Note: This demo will work with a Twilio free trial account, but just be sure to use "Verified Caller Id" numbers, so that Twilio can message those numbers when you try this demo.
-    
-This app allows anonymous users to access a "guestlist" webpage -- In order to access the webpage over the internet, we will need to use [ngrok](https://ngrok.com/) to expose your local machine to the internet.
+You should already have a Twilio account. Keep note of the important steps below to make sure to set environment variables to your TWILIO_NUMBER and Twilio app credentials. 
+
+Note:
+- This demo will work with a Twilio free trial account, but just be sure to use "Verified Caller Id" numbers, so that Twilio can message those numbers when you try this demo.
+- This app allows anonymous users to access a "guestlist" webpage -- In order to access the webpage over the internet, we will need to use [ngrok](https://ngrok.com/) to expose your local machine to the internet.
 
 ### Local setup
 
@@ -60,9 +61,7 @@ This app allows anonymous users to access a "guestlist" webpage -- In order to a
     ngrok http 8000 -host-header="localhost:8000"
     ```
 
-1. Rename ".example_env" to ".env".
-
-1. Edit .env and provide your TWILIO_NUMBER, TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN. Set APP_DOMAIN to ```<your-ngrok-subdomain>.ngrok.io```, obtained from the previous step.
+1. Rename ".example_env" to ".env". Then edit .env and provide your TWILIO_NUMBER, TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN. Set APP_DOMAIN to ```<your-ngrok-subdomain>.ngrok.io```, obtained from the previous step.
 
     ```
     export TWILIO_NUMBER="+1<your twilio number>"
